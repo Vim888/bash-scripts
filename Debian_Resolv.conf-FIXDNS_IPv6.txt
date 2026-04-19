@@ -1,0 +1,23 @@
+rm /etc/resolv.conf
+
+apt -y install sudo
+
+sudo tee /etc/resolv.conf > /dev/null <<EOF
+nameserver 2606:4700:4700::1111
+nameserver 2620:119:35::35
+nameserver 208.67.222.222
+nameserver 8.8.8.8
+nameserver 84.200.69.80
+nameserver 8.8.4.4
+nameserver 94.140.14.14
+nameserver 1.1.1.1
+nameserver 208.67.220.220
+nameserver 1.0.0.1
+nameserver 84.200.70.40
+nameserver 9.9.9.9
+nameserver 2620:fe::fe
+nameserver 2001:4860:4860::8844
+nameserver 2001:4860:4860::8888
+EOF
+
+chattr +i /etc/resolv.conf
